@@ -1,0 +1,34 @@
+name: outliner
+base: core
+version: '0.2.1'
+summary: CLI tool for Auto setup and deploy Outline VPN
+description: |
+   CLI tool for Auto setup and deploy Outline VPN
+   see https://github.com/Jyny/outliner for more info
+
+grade: stable
+confinement: strict
+
+apps:
+  outliner:
+    command: bin/outliner
+
+build-packages:
+  - gcc
+  - git
+  - make
+
+parts:
+  outliner:
+    plugin: go
+    go-importpath: github.com/jyny/outliner
+    source: https://github.com/jyny/outliner/archive/v0.2.1.tar.gz
+    override-build: |
+      make
+      mv outliner $SNAPCRAFT_PART_INSTALL
+    organize:
+        outliner: bin/
+
+apps:
+  outliner:
+    command: bin/outliner
