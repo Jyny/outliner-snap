@@ -1,6 +1,6 @@
 name: outliner
 base: core
-version: '0.2.1'
+version: '0.2.2'
 summary: CLI tool for Auto setup and deploy Outline VPN
 description: |
    CLI tool for Auto setup and deploy Outline VPN
@@ -22,7 +22,7 @@ parts:
   outliner:
     plugin: go
     go-importpath: github.com/jyny/outliner
-    source: https://github.com/jyny/outliner/archive/v0.2.1.tar.gz
+    source: https://github.com/jyny/outliner/archive/v0.2.2.tar.gz
     override-build: |
       make
       mv outliner $SNAPCRAFT_PART_INSTALL
